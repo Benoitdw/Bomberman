@@ -3,15 +3,20 @@ from grid.grid import Grid
 
 class Bomberman:
     def __init__(self):
-        self.grid = Grid((10, 10))
+        self.shape = (10,10)
 
     def execution(self):
-        while True:
-            current_game = Game(self.grid)
+        restart = True
+        while restart:
+            grid = Grid(self.shape)
+            current_game = Game(grid)
             current_game.start()
-            while True:
-                current_game.choose()
+            is_game_over = False
+            while not is_game_over:
                 print(current_game.grid.cells)
+                action_value = current_game.choose()
+                is_game_over = current_game.is_game_over(action_value)
+            restart = int(input("Do you cant to stop? (type 0 to stop)"))
 
 
 class Game:
@@ -21,12 +26,18 @@ class Game:
     def choose(self): # TODO : remove when gui
         coords_x = int(input("coordonnées x?"))
         coords_y = int(input('coordonnées y?'))
-        if self.grid.cells[coords_y][coords_x].set_visible() == 0:# TODO : Define action
-            self.game_over()
+        actions = {1: self.grid.cells[coords_y][coords_x].set_visible}
+        action = 1
+        val = actions[action]()
+        return val
 
     def start(self):
         self.grid.generate(self)
-        print(self.grid.cells)
 
-    def game_over(self):
-        print('YOU LOST!')
+    @staticmethod
+    def is_game_over(return_action_value):
+        if return_action_value == 0:
+            print('YOU LOST!')
+            return True
+        else:
+            return False
