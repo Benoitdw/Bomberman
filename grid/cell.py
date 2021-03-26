@@ -27,10 +27,9 @@ class Cell:
     def _search_neighbors(self):
         neighbors = []
         min_x, min_y, max_x, max_y = self._range_neighbors()
-        for row in self.parent_grid.cells[min_y: max_y]:
-            for cell in row[min_x: max_x]:
-                if cell != self:
-                    neighbors.append(cell)
+        for cell in self.parent_grid.cells[min_y: max_y, min_x:max_x]:
+            if cell != self:
+                neighbors.append(cell)
         return neighbors
 
     def _range_neighbors(self):
