@@ -1,41 +1,8 @@
 import numpy as np
+from grid.cell import Cell
 from typing import Tuple
 from scipy import signal
-from utils import Array, HIDDEN, FLAGGED, VISIBLE, kernel_3x3
-
-
-class Cell:
-    def __init__(self, value: int, position: Tuple, parent):
-        self.parent_grid = parent
-        self.value = value
-        self.position = position
-        self.state = HIDDEN
-
-    def set_visible(self):
-        if self.value == 100:
-            return 0
-        else:
-            self.state = VISIBLE
-        if self.value == 0:
-            self._show_neighbors()
-            return 1
-
-    def _show_neighbors(self):
-        x = self.position[0]
-        y = self.position[1] # TODO: continue
-
-    def __repr__(self):
-        if self.state == HIDDEN:
-            return '■'
-        if self.state == FLAGGED:
-            return '?'
-        if self.state == VISIBLE:
-            if self.value == 0:
-                return ' '
-            elif self.value == 100:
-                return '*'
-            else :
-                return str(self.value)
+from utils import Array, kernel_3x3
 
 
 class Grid:
@@ -80,7 +47,7 @@ class Grid:
 
 
 if __name__ == '__main__':
-    grid = Grid((8, 8))
+    grid = Grid((2, 2))
     grid.generate()
     grid.init_cell()
     print(grid)

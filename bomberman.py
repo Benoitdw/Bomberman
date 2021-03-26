@@ -1,9 +1,9 @@
-from grid import Grid
+from grid.grid import Grid
 
 
 class Bomberman:
     def __init__(self):
-        self.grid = Grid((8,8))
+        self.grid = Grid((10, 10))
 
     def execution(self):
         while True:
