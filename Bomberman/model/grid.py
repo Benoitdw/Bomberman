@@ -22,6 +22,7 @@ class Grid:
         self.parent_game = parent
         self._randomize()
         self._neighbors = self._count_neighbors()
+        print(self._bombs_location)
         mask = np.ma.array(self._neighbors, mask=self._bombs_location, fill_value=None)
         self._matrix = mask.filled(fill_value=100)
         self._make_cells()

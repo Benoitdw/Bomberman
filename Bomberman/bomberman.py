@@ -36,6 +36,7 @@ class Game:
 
     @staticmethod
     def is_game_over(return_action_value):
+
         if return_action_value == 0:
             print('YOU LOST!')
             return True
