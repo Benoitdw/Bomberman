@@ -8,6 +8,7 @@ class Cell(QPushButton):
         self.data = data
         super().__init__()
         self.clicked.connect(self.show_value)
+        self.setMaximumSize(20,20)
 
     def set_content(self):
         if self.data.state == HIDDEN:
@@ -16,9 +17,11 @@ class Cell(QPushButton):
             self.setText('?')
         elif self.data.state == VISIBLE:
             self.setText(str(self.data.value))
+            self.setDown(True)
+            self.setCheckable(False)
 
     def show_value(self):
         if self.data.set_visible() == 1:
             self.parent.update_grid()
-        else:
+        else: # to debug
             print('GAME OVER')

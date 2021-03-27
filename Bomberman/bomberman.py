@@ -1,9 +1,10 @@
 from Bomberman.model.grid import Grid
 from typing import Tuple
 
+
 class Bomberman:
     def __init__(self):
-        self.shape = (10,10)
+        self.shape = (10, 10)
 
     def execution(self):
         restart = True
@@ -23,7 +24,7 @@ class Game:
     def __init__(self, grid_shape: Tuple):
         self.grid = Grid(grid_shape)
 
-    def choose(self): # TODO : remove when gui
+    def choose(self):  # CLI
         coords_x = int(input("coordonnées x?"))
         coords_y = int(input('coordonnées y?'))
         actions = {1: self.grid.cells[coords_y][coords_x].set_visible}
@@ -35,7 +36,7 @@ class Game:
         self.grid.generate(self)
 
     @staticmethod
-    def is_game_over(return_action_value):
+    def is_game_over(return_action_value):  # CLI
 
         if return_action_value == 0:
             print('YOU LOST!')

@@ -8,11 +8,15 @@ class Grid(QGridLayout):
         self.data = None
         self.cells = []
         self.container = QWidget()
-        self.addWidget(QLabel('Bomberman'), 0, 0)
+        self.filler = QLabel('Bomberman')
+        self.addWidget(self.filler, 0, 0)
+        self.setHorizontalSpacing(0)
+        self.setVerticalSpacing(0)
 
     def update(self, data):
         self.data = data
         self.set_layout()
+        self.filler.setText('')  # TODO: find a proper way to delete this shit
 
     def set_layout(self):
         for cell in self._iterate_grid_data():
