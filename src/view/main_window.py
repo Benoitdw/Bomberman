@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QMainWindow, QWidget
-from Bomberman.controler.menu_action import NewGame
-from Bomberman.view.grid import Grid
+from src.controler.menu_action import NewGame
+from src.view.grid import Grid
 
 
 class MainWindow(QMainWindow):

@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QPushButton
-from Bomberman.utils import HIDDEN, FLAGGED, VISIBLE
+from src.utils import HIDDEN, FLAGGED, VISIBLE
 
 
 class Cell(QPushButton):

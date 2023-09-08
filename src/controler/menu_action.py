@@ -1,5 +1,5 @@
 from PySide6.QtGui import QAction
-from Bomberman.bomberman import Game
+from src.bomberman import Game
 
 
 class NewGame(QAction):

@@ -1,5 +1,5 @@
 from typing import Tuple
-from Bomberman.utils import HIDDEN, FLAGGED, VISIBLE
+from src.utils import HIDDEN, FLAGGED, VISIBLE
 
 
 class Cell:
@@ -21,11 +21,8 @@ class Cell:
 
     def _show_neighbors(self):
         neighbors = self._search_neighbors()
-        print(neighbors)
         for neighbor in neighbors:
-            print(neighbor.state)
             neighbor.set_visible()
-        print('---')
 
     def _search_neighbors(self):
         neighbors = []

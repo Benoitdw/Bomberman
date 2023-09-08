@@ -1,4 +1,4 @@
-from Bomberman.view.main_window import MainWindow
+from src.view.main_window import MainWindow
 from PySide6.QtWidgets import QApplication
 
 game = QApplication()

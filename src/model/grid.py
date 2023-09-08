@@ -1,8 +1,8 @@
 import numpy as np
-from Bomberman.model.cell import Cell
+from src.model.cell import Cell
 from typing import Tuple
 from scipy import signal
-from Bomberman.utils import Array, kernel_3x3
+from src.utils import Array, kernel_3x3
 
 
 class Grid:

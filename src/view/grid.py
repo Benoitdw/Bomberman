@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QLabel, QGridLayout, QWidget
-from Bomberman.view.cell import Cell
+from src.view.cell import Cell
 
 
 class Grid(QGridLayout):
